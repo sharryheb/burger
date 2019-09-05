@@ -22,19 +22,20 @@ var orm = {
         connection.query(queryString, values, function(err, result) 
         {
             if (err) throw err;
-            cb(result.addedRows);
+            cb(result);
         });
     },
-    updateOne: function(table, objColVals, id, cb)
+    updateOne: function(table, objColVals, condition, cb)
     {
         var queryString = "UPDATE " + table;
         queryString += " SET ";
         queryString += objToSql(objColVals);
         queryString += " WHERE ";
-        queryString += "id = ?";
-
-        connection.query(queryString, id, function(err, result) 
+        queryString += condition;
+console.log(queryString);
+        connection.query(queryString, function(err, result) 
         {
+          console.log("ORM - callback");
             if (err) throw err;
             cb(result.affectedRows);
         });
