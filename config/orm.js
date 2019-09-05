@@ -32,10 +32,9 @@ var orm = {
         queryString += objToSql(objColVals);
         queryString += " WHERE ";
         queryString += condition;
-console.log(queryString);
+        
         connection.query(queryString, function(err, result) 
         {
-          console.log("ORM - callback");
             if (err) throw err;
             cb(result.affectedRows);
         });

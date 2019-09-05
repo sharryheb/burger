@@ -17,25 +17,21 @@ router.get("/", function(req, res)
 
 router.post("/api/burgers", function(req, res)
 {
-    console.log("here - post");
     var burger_name = req.body.burger_name;
     var devoured = req.body.devoured;
     Burger.create(["burger_name", "devoured"], [burger_name, devoured], function(result)
     {
-        console.log(result);
         res.json(result);
     });
 });
 
-router.post("api/burgers/:id", function(req, res)
+router.put("/api/burgers/:id", function(req, res)
 {
-    console.log("here - put");
     var condition = "id = " + req.params.id;
     Burger.update({devoured: req.body.devoured}, 
     condition, 
     function(result)
     {
-        console.log("put - callback");
         if (result.changedRows === 0) 
         {
             // If no rows were changed, then the ID must not exist, so 404
