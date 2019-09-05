@@ -4,12 +4,12 @@
         <div class="col-md-12 text-center">
             <form id="add-burger">
                 <div class="row">
-                    <div class="col-md-5" id="availableList">
-                        {{#each burgers}}
-                        {{#unless devoured}}
-                            {{burger_name}}
-                        {{/unless}}
-                        {{/each}}
+                    <div class="col-md-4" id="availableList">
+                            {{#each burgers}}
+                            {{#unless devoured}}
+                                <div class="text-left d-flex justify-content-between">{{burger_name}}<button type="submit" id="burger{{id}}" class="btn btn-primary btn-sm">Devour It!</button></div>
+                            {{/unless}}
+                            {{/each}}
                     </div>
                     <div class="col-md-2">
                         
