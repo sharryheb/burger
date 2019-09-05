@@ -1,0 +1,29 @@
+<div class="container">
+    <h1 class="text-center">Eat-A-Burger</h1>
+    <div class="row" id="inputForm">
+        <div class="col-md-12 text-center">
+            <form id="add-burger">
+                <div class="row">
+                    <div class="col-md-5" id="availableList">
+                        {{#each burgers}}
+                        {{#unless devoured}}
+                            {{burger_name}}
+                        {{/unless}}
+                        {{/each}}
+                    </div>
+                    <div class="col-md-2">
+                        
+                    </div>
+                    <div class="col-md-5" id="devouredList">
+                        
+                    </div>
+                </div>
+                <div class="form-group justify-content-center">
+                    <label for="burger">Enter a burger to eat:</label><br>
+                    <textarea class="form-control w-50 d-inline" id="burger" rows="3"></textarea>
+                </div>
+                <button class="btn btn-primary" type="submit" id="addBurger" name="addBurger">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

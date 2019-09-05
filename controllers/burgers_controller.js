@@ -7,9 +7,10 @@ router.get("/", function(req, res)
 {
     Burger.all(function(data) 
     {
+        console.log(data);
         var hbsObject = 
         {
-        cats: data
+            burgers: data
         };
         res.render("index", hbsObject);
     });
